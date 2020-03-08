@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
-import {Logger} from './Logger.service';
+import { Observable, of } from 'rxjs';
+import {MessageService} from './message.service';
 import {Hero} from './Hero';
+import { HEROES } from './mock-heroes';
 
-@Injectable()
-export class HeroService{
-  private heroes:Hero[];
+@Injectable({
+  providedIn: 'root'
+})
+export class HeroService {
 
   constructor(
-    //private backend:BackendService,
-    //private logger: Logger
-  ){}
+    private mgsService: MessageService
+  ) { }
 
-  getHeroes(){
-    // this.backend.getAll(Hero).then( heroes:Hero[] =>{
-    //   this.logger.console.log(`Feteched ${heroes.length} heroes`);
-    //   this.heroes.push(...this.heroes);
-    // });
+  getHeroes(): Observable<Hero[]> {
+    this.mgsService.addMessage(`Hero Service received ${HEROES.length} record(s) from the service`)
+    return of( HEROES );
   }
+
 }

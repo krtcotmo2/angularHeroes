@@ -1,15 +1,21 @@
-<h4>Heroes List</h4>
 <div>
   <div class='row'>
     <div class='col-3 listSection'>
-        <ul class="heroList">
+      <h4 class='container pl-5'>Heroes List</h4>
+      <ul class="heroList">
         <li *ngFor="let hero of heroes" (click)=selectHero(hero)>
-          <span class='badge' data-id="{{hero.id}}">{{hero.imgIcon}}</span>{{hero.name}}
+          <span class='badge' data-id="{{hero.id}}">
+            <img *ngIf='hero.imgIcon; else genIcon' src='../../assets/images/{{hero.imgIcon}}'/>
+            <ng-template #genIcon>
+              <img src='../../assets/images/genIcon.png'/>
+            </ng-template>
+          </span>{{hero.name}}
         </li>
       </ul>
     </div>
     <div class='col-9 pr-5'>
-      <app-heroes *ngIf="selectedHero" [hero]="selectedHero"></app-heroes>
+      <app-heroes [hero]="selectedHero"></app-heroes>
+      <app-messages></app-messages>
     </div>
   </div>
 </div>

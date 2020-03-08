@@ -13,12 +13,14 @@ import { Logger } from './logger.service';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './Heroes/Heroes.component';
 import { HeroListComponent } from './HeroList/HeroList.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       HeroesComponent,
-      HeroListComponent
+      HeroListComponent,
+      MessagesComponent
    ],
    imports: [
       BrowserModule,
@@ -26,7 +28,7 @@ import { HeroListComponent } from './HeroList/HeroList.component';
       FormsModule
    ],
    providers: [
-     // BackendService,
+      //BackendService,
       Logger
    ],
    bootstrap: [

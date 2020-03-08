@@ -1,23 +1,26 @@
-<div class='container hero-card'>
-  <h2>{{hero.name | uppercase}} Details</h2>
-  <input type="hidden" value={{hero.id}}/>
-  <div class='row'>
-    <div class='col-2'><img src='../../assets/images/ancap.jpg' style="width: 100%;"/></div>
-    <div class='vitals col-5'>
-      <label>Alias:
-        <input [(ngModel)]="hero.name" placeholder="name"/>
-      </label>
-      <label>Identity:
-        <input placeholder="name" [(ngModel)]="hero.identity" />
-      </label>
+<!-- HERO CARD -->
+<div *ngIf="hero" >
+  <h2 style='border-bottom:1px solid #ccc;'>{{hero.name | uppercase}} Details</h2>
+  <div class='container hero-card'>
+    <input type="hidden" value={{hero.id}} />
+    <div class='row'>
+      <div class='col-2'><img src='../../assets/images/ancap.jpg' style="width: 100%;" /></div>
+      <div class='vitals col-5'>
+        <label>Alias:
+          <input [(ngModel)]="hero.name" placeholder="name" />
+        </label>
+        <label>Identity:
+          <input placeholder="name" [(ngModel)]="hero.identity" />
+        </label>
+      </div>
+      <div class='powers col-5'>
+        <label>Powers:</label>
+      </div>
     </div>
-    <div class='powers col-5'>
-      <label>Powers:</label>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='col-12'>
-      <label>History:</label>
+    <div class='row'>
+      <div class='col-12'>
+        <label>History:</label>
+      </div>
     </div>
   </div>
 </div>
