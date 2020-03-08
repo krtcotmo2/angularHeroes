@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BackendService } from './backend.service';
+import { Logger } from './logger.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +16,10 @@ import { HeroDetailComponent } from './HeroDetail/HeroDetail.component';
       BrowserModule,
       AppRoutingModule
    ],
-   providers: [],
+   providers: [
+     BackendService,
+     Logger
+   ],
    bootstrap: [
       AppComponent
    ]
