@@ -1,24 +1,33 @@
+//Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BackendService } from './backend.service';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+//import { from } from 'rxjs';
+
+//Services
+//import { BackendService } from './backend.service';
 import { Logger } from './logger.service';
 
-import { AppRoutingModule } from './app-routing.module';
+//Components
 import { AppComponent } from './app.component';
-import { HeroDetailComponent } from './HeroDetail/HeroDetail.component';
+import { HeroesComponent } from './Heroes/Heroes.component';
+import { HeroListComponent } from './HeroList/HeroList.component';
 
 @NgModule({
    declarations: [
       AppComponent,
-      HeroDetailComponent
+      HeroesComponent,
+      HeroListComponent
    ],
    imports: [
       BrowserModule,
-      AppRoutingModule
+      AppRoutingModule,
+      FormsModule
    ],
    providers: [
-     BackendService,
-     Logger
+     // BackendService,
+      Logger
    ],
    bootstrap: [
       AppComponent

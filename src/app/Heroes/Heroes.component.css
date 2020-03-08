@@ -1,0 +1,18 @@
+.hero-card{
+  border:1px solid #ccc;
+  border-radius:6px;
+  padding:12px;
+}
+.hero-card .vitals label{
+  display: block;
+}
+
+input{
+  padding:6px;
+  border-radius: 6px;
+  border: 1px #ccc solid;
+  outline: none;
+}
+input:focus{
+  border: 1px #e20074 solid;
+}

@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
-import {Logger} from "./Logger.service"
+import {Logger} from './Logger.service';
+import {Hero} from './Hero';
 
 @Injectable()
 export class HeroService{
   private heroes:Hero[];
 
   constructor(
-    private backend:BackendService,
-    private logger: Logger
+    //private backend:BackendService,
+    //private logger: Logger
   ){}
 
   getHeroes(){
-    this.backend.getAll(Hero).then( heroes:Hero[] =>{
-      this.logger.console.log(`Feteched ${heroes.length} heroes`);
-      this.heroes.push(...this.heroes);
-    });
+    // this.backend.getAll(Hero).then( heroes:Hero[] =>{
+    //   this.logger.console.log(`Feteched ${heroes.length} heroes`);
+    //   this.heroes.push(...this.heroes);
+    // });
   }
 }
