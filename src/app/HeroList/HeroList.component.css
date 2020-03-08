@@ -1,0 +1,25 @@
+.listSection{
+  border-right:1px solid #ccc;
+  padding:0
+}
+ul.heroList{
+  list-style: none;
+  padding-inline-start: 0px;
+  margin: 0;
+  padding-left: 12px;
+  margin-left:18px
+}
+ul.heroList li:first-child{
+  border-top:1px solid #ccc;
+}
+ul.heroList li{
+  padding: 12px;
+  border-bottom:1px solid #ccc;
+}
+ul.heroList li:hover{
+  background-color: azure;
+  cursor:pointer;
+}
+.badge{
+  margin-right:12px
+}

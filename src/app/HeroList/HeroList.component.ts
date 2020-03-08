@@ -1,26 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { HeroService } from '../hero.service';
+import { Hero} from '../Hero';
+import { MessageService } from '../message.service';
+import * as _ from 'lodash';
 
 @Component({
-  selector: 'app-HeroList',
+  selector: 'app-hero-list',
   templateUrl: './HeroList.component.html',
   styleUrls: ['./HeroList.component.css'],
   providers: [HeroService]
 })
 export class HeroListComponent implements OnInit {
-  //need to create Hero Class
   heroes: Hero[];
   selectedHero: Hero;
 
-  //nned to create HeroService
   constructor(
-    private service: HeroService
+    private heroService: HeroService,
+    public msg: MessageService
   ) { }
 
   ngOnInit() {
-    this.heroes = this.service.getHeroes();
+    this.msg.addMessage('Attempting to retrieve heroes');
+    this.heroService.getHeroes()
+          .subscribe(heroes => this.heroes = heroes);
   }
 
-  selectedHero(hero: Hero) {
+  selectHero(hero: Hero) {
+    this.msg.clearMessages(hero.id);
     this.selectedHero = hero;
   }
 
