@@ -1,5 +1,5 @@
 <!-- HERO CARD -->
-<div *ngIf="hero" >
+<div *ngIf="hero else noHero" >
   <h2 style='border-bottom:1px solid #ccc;'>{{hero.name | uppercase}} Details</h2>
   <div class='container hero-card'>
     <input type="hidden" value={{hero.id}} />
@@ -24,3 +24,6 @@
     </div>
   </div>
 </div>
+<ng-template #noHero>
+ <h4 class='p-4'>No Hero selected</h4>
+</ng-template>
