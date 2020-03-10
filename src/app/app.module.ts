@@ -14,13 +14,15 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './Heroes/Heroes.component';
 import { HeroListComponent } from './HeroList/HeroList.component';
 import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       HeroesComponent,
       HeroListComponent,
-      MessagesComponent
+      MessagesComponent,
+      DashboardComponent
    ],
    imports: [
       BrowserModule,

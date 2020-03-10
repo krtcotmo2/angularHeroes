@@ -14,8 +14,12 @@ export class HeroService {
   ) { }
 
   getHeroes(): Observable<Hero[]> {
-    this.mgsService.addMessage(`Hero Service received ${HEROES.length} record(s) from the service`)
+    this.mgsService.addMessage(`Hero Service received ${HEROES.length} record(s) from the service`);
     return of( HEROES );
+  }
+  getHero(id: number): Observable<Hero> {
+    this.mgsService.addMessage(`HeroService: fetched hero id=${id}`);
+    return of(HEROES.find(hero => hero.id === id));
   }
 
 }
