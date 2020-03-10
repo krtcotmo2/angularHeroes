@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="row">
+  <a *ngFor="let hero of heroes" class="col-3"  routerLink="/detail/{{hero.id}}">
+    <app-heroes class="module hero" [hero]="hero"></app-heroes>
+  </a>
+</div>
+</div>

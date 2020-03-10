@@ -4,7 +4,8 @@
       <h4 class='container pl-5'>Heroes List</h4>
       <ul class="heroList">
         <li *ngFor="let hero of heroes" (click)=selectHero(hero)>
-          <span class='badge' data-id="{{hero.id}}">
+        <!-- <li *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}"> -->
+            <span class='badge' data-id="{{hero.id}}">
             <img *ngIf='hero.imgIcon; else genIcon' src='../../assets/images/{{hero.imgIcon}}'/>
             <ng-template #genIcon>
               <img src='../../assets/images/genIcon.png'/>
@@ -14,7 +15,7 @@
       </ul>
     </div>
     <div class='col-9 pr-5'>
-      <app-heroes [hero]="selectedHero"></app-heroes>
+      <app-heroes [hero]="selectedHero" [showBtn]="false"></app-heroes>
       <app-messages></app-messages>
     </div>
   </div>

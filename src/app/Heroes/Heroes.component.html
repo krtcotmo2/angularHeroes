@@ -22,6 +22,7 @@
         <label>History:</label>
       </div>
     </div>
+    <button *ngIf="showBtn" (click)="goBack()">go back</button>
   </div>
 </div>
 <ng-template #noHero>
