@@ -26,7 +26,7 @@ export class HeroListComponent implements OnInit {
   }
 
   selectHero(hero: Hero) {
-    this.msg.addMessage( `Clicked on ${hero.name} - id ${hero.id}`)
+    this.msg.addMessage( `Clicked on ${hero.name} - id ${hero.id}`);
     this.selectedHero = hero;
   }
 

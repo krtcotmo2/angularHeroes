@@ -24,6 +24,7 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit() {
     if (!this.hero) {
+      console.log('no hero');
       this.getHero();
     }
   }
