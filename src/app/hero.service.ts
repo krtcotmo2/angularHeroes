@@ -5,6 +5,7 @@ import {Hero} from './Hero';
 import { HEROES } from './mock-heroes';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap} from 'rxjs/operators';
+import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,14 @@ import { catchError, map, tap} from 'rxjs/operators';
 export class HeroService {
   // the path after api matches the const var in in-memory-dataservices and is case sensitive
   private heroesUrl = 'api/heroes';
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(
     private http: HttpClient,
     private mgsService: MessageService,
   ) { }
-
   getHeroes(): Observable<Hero[]> {
     this.log(`Hero Service received ${HEROES.length} record(s) from the service`);
     return this.http.get<Hero[]>(this.heroesUrl)
@@ -34,6 +37,19 @@ export class HeroService {
       catchError(this.handleError<Hero>(`getHero id=${id}`))
     );
   }
+  updateHero(hero: Hero) {
+    return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
+      tap(_ => this.log(`updated hero id=${hero.id}`)),
+      catchError(this.handleError<any>('updateHero'))
+    );
+  }
+  addHero (hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
+      tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
+      catchError(this.handleError<Hero>('addHero'))
+    );
+  }
+
   private log(message: string) {
     this.mgsService.addMessage(`HeroService: ${message}`);
   }
@@ -45,4 +61,5 @@ export class HeroService {
       return of(result as T);
     };
   }
+
 }

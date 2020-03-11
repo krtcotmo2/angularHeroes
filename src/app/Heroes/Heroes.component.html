@@ -7,10 +7,10 @@
       <div class='col-2'><img src='../../assets/images/ancap.jpg' style="width: 100%;" /></div>
       <div class='vitals col-5'>
         <label>Alias:
-          <input [(ngModel)]="hero.name" placeholder="name" />
+          <input [(ngModel)]="hero.name" placeholder="name" #heroName />
         </label>
         <label>Identity:
-          <input placeholder="name" [(ngModel)]="hero.identity" />
+          <input [(ngModel)]="hero.identity" placeholder="name" #heroID/>
         </label>
       </div>
       <div class='powers col-5'>
@@ -22,7 +22,7 @@
         <label>History:</label>
       </div>
     </div>
-    <button *ngIf="showBtn" (click)="goBack()">go back</button>
+    <button *ngIf="showBtn" class='mr-4' (click)='goBack()'>Go Back</button><button class='mr-4' (click)='save()'>Save</button><button (click)='add(heroName.value, heroID.value); heroName.value=""; heroID.value="";'>Add</button>
   </div>
 </div>
 

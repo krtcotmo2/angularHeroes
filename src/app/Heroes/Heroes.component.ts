@@ -39,4 +39,22 @@ export class HeroesComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+  save(): void {
+    this.heroService.updateHero(this.hero)
+    .subscribe(() => {
+      if (+this.route.snapshot.paramMap.get('id') > 0 ) {
+        this.goBack();
+      }
+    });
+  }
+
+  add(name: string, identity: string): void {
+    name = name.trim();
+    identity = identity.trim();
+    if (!name) { return; }
+    this.heroService.addHero({ name, identity } as Hero)
+      .subscribe(hero => {
+        // this.heroes.push(hero);
+      });
+  }
 }
